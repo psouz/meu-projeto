@@ -1,0 +1,28 @@
+name: Node.js CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout do código
+      uses: actions/checkout@v2
+
+    - name: Configurar Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+
+    - name: Instalar dependências
+      run: npm install
+
+    - name: Rodar testes
+      run: echo "Sem testes ainda... mas pipeline funcionando!"
+
+    - name: Build concluído
+      run: echo "CI/CD rodou com sucesso!"
